@@ -3,7 +3,7 @@ def extended_euclidean_algorithm(a, b):
     while a != 0:
         q, r = b // a, b % a
         m, n = x - u * q, y - v * q
-        print(str(a)+"="+str(q)+"*"+str(a)+"+"+str(r))
+        print(str(b)+"="+str(q)+"*"+str(a)+"+"+str(r))
         b, a, x, y, u, v = a, r, u, v, m, n
     gcd = b
     return gcd, x
