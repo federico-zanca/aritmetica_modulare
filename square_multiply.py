@@ -2,7 +2,7 @@ def square_multiply(a, b, n):
     ogb = b
     b = bin(b)[2:]
     x = 1
-    y = 2
+    y = a
     for i in range(len(b)):
         x = x**2 % n
         if i > 0:
