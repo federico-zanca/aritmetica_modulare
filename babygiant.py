@@ -3,7 +3,7 @@ import math
 def babystep_giantstep(alfa, beta, p):
     n = int(math.ceil(math.sqrt(p - 1)))
     print(str(alfa) + "**x (mod " + str(p) + ") == " + str(beta))
-    print("Riscrivo x in base N="+str(n))
+    print("Riscrivo x in base \nN=ceil(sqrt("+str(p-1)+"))="+str(n))
     print("jk\t a**j\t b*a**(-N*k)")
     j_values = []
     k_values = []
@@ -20,10 +20,10 @@ def babystep_giantstep(alfa, beta, p):
         elif(alfa_j in k_values):
             print("x = j"+" + "+str(n)+"k")
             print("j="+str(j)+", k="+str(k_values.index(alfa_j)))
-            return k_values.index(alfa_j) + n * j
+            return j + n * k_values.index(alfa_j)
 
 print("Enter alfa**x == beta (mod p)")
 alfa = int(input("Enter alfa: "))
 beta = int(input("Enter beta: "))
 p = int(input("Enter p: "))
-babystep_giantstep(alfa, beta, p)
+print("x="+str(babystep_giantstep(alfa, beta, p)))
