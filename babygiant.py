@@ -1,9 +1,32 @@
 import math
+def invert(a, b):
+    x, y, u, v = 0, 1, 1, 0
+    while a != 0:
+        q, r = b // a, b % a
+        m, n = x - u * q, y - v * q
+        b, a, x, y, u, v = a, r, u, v, m, n
+    return x
+
+def pow(a, b, n):
+    ogb = b
+    if(b<0):
+        b = -b
+        a = invert(a, n)
+    b = bin(b)[2:]
+    x = 1
+    y = a
+    for i in range(len(b)):
+        x = x**2 % n
+        if i > 0:
+            y = y**2 % n
+        if b[i] == '1':
+            x = x * a % n
+    return x
 
 def babystep_giantstep(alfa, beta, p):
     n = int(math.ceil(math.sqrt(p - 1)))
     print(str(alfa) + "**x (mod " + str(p) + ") == " + str(beta))
-    print("Riscrivo x in base \nN=ceil(sqrt("+str(p-1)+"))="+str(n))
+    print("Riscrivo x in base N \nN=ceil(sqrt("+str(p-1)+"))="+str(n))
     print("jk\t a**j\t b*a**(-N*k)")
     j_values = []
     k_values = []
